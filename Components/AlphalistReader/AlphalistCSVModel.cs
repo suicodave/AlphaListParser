@@ -10,8 +10,8 @@ namespace AlphaListParser.Components.AlphalistReader
         public string TaxCode { get; set; }
         public decimal TaxBase { get; set; }
         public decimal WithHoldingTax { get; set; }
-        public decimal TaxRate { get; set; }
-        
-        
+        public decimal TaxRate { get; set; } = 0;
+
+
     }
 }

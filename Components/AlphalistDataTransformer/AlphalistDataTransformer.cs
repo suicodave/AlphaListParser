@@ -5,18 +5,18 @@ using AlphaListParser.Components.AlphalistReader;
 
 namespace AlphaListParser.Components.AlphalistDataTransformer
 {
-    public class AlphalistDataTransformer
+    public static class AlphalistDataTransformer
     {
-        public IEnumerable<TransformedAlphalistModel> Transform(IEnumerable<AlphalistCSVModel> csvRecords)
+        public static IEnumerable<TransformedAlphalistModel> Transform(IEnumerable<AlphalistCSVModel> csvRecords)
 
         {
             return csvRecords.Select(
                 x => new TransformedAlphalistModel
                 {
-                    CorporateName = x.CorporateName,
-                    FirstName = x.FirstName,
-                    MiddleName = x.MiddleName,
-                    LastName = x.LastName,
+                    CorporateName = CleanName.Apply(x.CorporateName),
+                    FirstName = CleanName.Apply(x.FirstName),
+                    MiddleName = CleanName.Apply(x.MiddleName),
+                    LastName = CleanName.Apply(x.LastName),
                     TaxIdentificationNumber = x.TaxIdentificationNumber,
                     TaxCode = x.TaxCode,
                     TaxBase = x.TaxBase,

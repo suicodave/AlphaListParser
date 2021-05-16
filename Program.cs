@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Text.Json;
+using System.Threading.Tasks;
+using AlphaListParser.Components.AlphalistDataTransformer;
+using AlphaListParser.Components.AlphalistLoader;
 using AlphaListParser.Components.AlphalistReader;
 
 namespace AlphaListParser
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             string filePath = args[0];
 
-            var alphaListReader = new AlphalistReader<AlphalistCSVModel>();
+            var records = AlphalistReader<AlphalistCSVModel>.Read(filePath);
 
+            var transformed = AlphalistDataTransformer.Transform(records);
 
-            var records = alphaListReader.Read(filePath);
+            await AlphalistLoader.WriteToTextFile(transformed);
 
-
-            foreach (var item in records)
-            {
-                Console.WriteLine(JsonSerializer.Serialize(item));
-            }
         }
     }
 }
