@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TosDiPo/lAl/tl7oQPbxpLnZkFa31inmsf1z+MFwuyr6t7bkI70H/HGZuGWSPe1A+eNflB7iB1fhC9tFp50PJQ==",
+  "dgSpecHash": "BeejofEpx4ouheRisKRI+4VUQX8kOEMy15Z861GoVh2S/siFFV1XK3smx6vaCswUtmMDAaSjl/ApdsoJToSGlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dave Suico\\source\\repos\\AlphaListParser\\AlphaListParser.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dave Suico\\.nuget\\packages\\csvhelper\\27.0.2\\csvhelper.27.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
