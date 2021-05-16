@@ -10,7 +10,7 @@ namespace AlphaListParser
         {
             string filePath = args[0];
 
-            var alphaListReader = new AlphalistReader<AlphalistModel>();
+            var alphaListReader = new AlphalistReader<AlphalistCSVModel>();
 
 
             var records = alphaListReader.Read(filePath);

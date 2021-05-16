@@ -1,6 +1,6 @@
 namespace AlphaListParser.Components.AlphalistReader
 {
-    public class AlphalistModel
+    public class AlphalistCSVModel
     {
         public string CorporateName { get; set; }
         public string FirstName { get; set; }
@@ -10,5 +10,8 @@ namespace AlphaListParser.Components.AlphalistReader
         public string TaxCode { get; set; }
         public decimal TaxBase { get; set; }
         public decimal WithHoldingTax { get; set; }
+        public decimal TaxRate { get; set; }
+        
+        
     }
 }
