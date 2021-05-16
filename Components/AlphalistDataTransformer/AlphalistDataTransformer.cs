@@ -13,10 +13,10 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
             return csvRecords.Select(
                 x => new TransformedAlphalistModel
                 {
-                    CorporateName = CleanName.Apply(x.CorporateName),
-                    FirstName = CleanName.Apply(x.FirstName),
-                    MiddleName = CleanName.Apply(x.MiddleName),
-                    LastName = CleanName.Apply(x.LastName),
+                    CorporateName = NameCleaner.Apply(x.CorporateName),
+                    FirstName = NameCleaner.Apply(x.FirstName),
+                    MiddleName = NameCleaner.Apply(x.MiddleName),
+                    LastName = NameCleaner.Apply(x.LastName),
                     TaxIdentificationNumber = x.TaxIdentificationNumber,
                     TaxCode = x.TaxCode,
                     TaxBase = x.TaxBase,

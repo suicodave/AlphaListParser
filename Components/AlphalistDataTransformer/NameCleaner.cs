@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AlphaListParser.Components.AlphalistDataTransformer
 {
-    public static class CleanName
+    public static class NameCleaner
     {
         public static string Apply(string name)
         {
