@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.Json;
+using AlphaListParser.Components.AlphalistReader;
 
 namespace AlphaListParser
 {
@@ -6,11 +8,17 @@ namespace AlphaListParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string filePath = args[0];
 
-            foreach (var item in args)
+            var alphaListReader = new AlphalistReader<AlphalistModel>();
+
+
+            var records = alphaListReader.Read(filePath);
+
+
+            foreach (var item in records)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(JsonSerializer.Serialize(item));
             }
         }
     }
