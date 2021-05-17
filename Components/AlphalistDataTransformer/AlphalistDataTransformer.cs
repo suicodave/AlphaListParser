@@ -10,8 +10,15 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
         public static IEnumerable<TransformedAlphalistModel> Transform(IEnumerable<AlphalistCSVModel> csvRecords)
 
         {
-            return csvRecords.Select(
-                x => new TransformedAlphalistModel
+            int itemCount = csvRecords.Count();
+
+            ICollection<TransformedAlphalistModel> records = new List<TransformedAlphalistModel>();
+
+            for (int i = 0; i < itemCount; i++)
+            {
+                var x = csvRecords.ElementAt(i);
+
+                records.Add(new TransformedAlphalistModel
                 {
                     CorporateName = NameCleaner.Apply(x.CorporateName),
                     FirstName = NameCleaner.Apply(x.FirstName),
@@ -22,14 +29,16 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
                     TaxBase = x.TaxBase,
                     WithHoldingTax = x.WithHoldingTax,
                     TaxRate = x.TaxRate,
-                    NormalizedTin = TinCleaner.NormalizeTin(x.TaxIdentificationNumber),
-                    BaseTin = TinCleaner.GetBaseTin(x.TaxIdentificationNumber),
-                    BranchId = TinCleaner.GetBranchId(x.TaxIdentificationNumber),
-                    UnsanitizedBranchId = TinCleaner.GetUnsanitizedBranchId(x.TaxIdentificationNumber),
-                    Sequence = 999
+                    NormalizedTin = NormalizeTin.Apply(x.TaxIdentificationNumber),
+                    BaseTin = ExtractBaseTin.Apply(x.TaxIdentificationNumber),
+                    BranchId = ExtractTinBranchId.Apply(x.TaxIdentificationNumber),
+                    UnsanitizedBranchId = ExtractUnsanitizedTinBranchId.Apply(x.TaxIdentificationNumber),
+                    Sequence = i
 
-                }
-            );
+                });
+            }
+
+            return records;
         }
 
 
