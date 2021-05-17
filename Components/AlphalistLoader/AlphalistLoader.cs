@@ -13,13 +13,26 @@ namespace AlphaListParser.Components.AlphalistLoader
         {
             var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            string filename = $"{Guid.NewGuid()}-alphalist.json";
+            await DumpDebugData(records, desktopPath);
 
-            string fullPath = Path.Combine(desktopPath, filename);
+
+
+
+
+
+        }
+
+        public static async Task DumpDebugData(IEnumerable<TransformedAlphalistModel> records, string path)
+        {
+            string filename = $"{Guid.NewGuid()}-alphalist debug.json";
+
+            string fullPath = Path.Combine(path, filename);
 
             string contents = JsonSerializer.Serialize(records);
 
             await File.WriteAllTextAsync(fullPath, contents);
         }
+
+        
     }
 }
