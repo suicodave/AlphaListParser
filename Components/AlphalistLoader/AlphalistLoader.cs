@@ -9,16 +9,14 @@ namespace AlphaListParser.Components.AlphalistLoader
 {
     public static class AlphalistLoader
     {
-        public static async Task WriteToTextFile(IEnumerable<TransformedAlphalistModel> records)
+        public static async Task WriteToTextFile(IEnumerable<TransformedAlphalistModel> records, AlphalistConfig config)
         {
             var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             await DumpDebugData(records, desktopPath);
 
 
-
-
-
+            await DumpIndividualQuery(records, desktopPath, config);
 
         }
 
@@ -33,6 +31,15 @@ namespace AlphaListParser.Components.AlphalistLoader
             await File.WriteAllTextAsync(fullPath, contents);
         }
 
-        
+        public static async Task DumpIndividualQuery(IEnumerable<TransformedAlphalistModel> records, string path, AlphalistConfig config)
+        {
+            string filename = $"{Guid.NewGuid()}-alphalist individual query.txt";
+
+            string fullPath = Path.Combine(path, filename);
+
+            var contents = ExtractIndividualSqlStatement.Apply(records, config);
+
+            await File.WriteAllLinesAsync(fullPath, contents);
+        }
     }
 }
