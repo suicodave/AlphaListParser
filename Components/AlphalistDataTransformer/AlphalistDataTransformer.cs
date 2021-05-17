@@ -33,7 +33,7 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
                     BaseTin = ExtractBaseTin.Apply(x.TaxIdentificationNumber),
                     BranchId = ExtractTinBranchId.Apply(x.TaxIdentificationNumber),
                     UnsanitizedBranchId = ExtractUnsanitizedTinBranchId.Apply(x.TaxIdentificationNumber),
-                    Sequence = i
+                    Sequence = i + 1
 
                 });
             }
