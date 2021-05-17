@@ -19,6 +19,9 @@ namespace AlphaListParser
 
             await AlphalistLoader.WriteToTextFile(transformed);
 
+
+            Console.WriteLine(TinCleaner.GetBranchId("746621092"));
+
         }
     }
 }

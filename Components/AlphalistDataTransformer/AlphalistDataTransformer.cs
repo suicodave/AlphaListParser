@@ -22,9 +22,10 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
                     TaxBase = x.TaxBase,
                     WithHoldingTax = x.WithHoldingTax,
                     TaxRate = x.TaxRate,
-                    NormalizedTin = "To Be Added",
-                    BaseTin = "To Be Added",
-                    BranchId = "To Be Added",
+                    NormalizedTin = TinCleaner.NormalizeTin(x.TaxIdentificationNumber),
+                    BaseTin = TinCleaner.GetBaseTin(x.TaxIdentificationNumber),
+                    BranchId = TinCleaner.GetBranchId(x.TaxIdentificationNumber),
+                    UnsanitizedBranchId = TinCleaner.GetUnsanitizedBranchId(x.TaxIdentificationNumber),
                     Sequence = 999
 
                 }
