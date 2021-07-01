@@ -6,10 +6,14 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
     {
         public static string Apply(string name)
         {
-            return NameCleaner.RemoveSpecialCharacters(name);
+            name = NameCleaner.NumbersOnly(name);
+
+            name = NameCleaner.RemoveWhiteSpace(name);
+
+            return NameCleaner.Apply(name);
         }
 
 
-        
+
     }
 }

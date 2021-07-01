@@ -35,8 +35,22 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
 
         public static string RemoveExtraWhiteSpace(string name)
         {
-            return Regex.Replace(name, @"/^\s+|\s+$|\s+(?=\s)", "");
+            name = Regex.Replace(name, @"/^\s+|\s+$|\s+(?=\s)", "");
+
+            return name.Trim();
         }
+
+        public static string NumbersOnly(string name)
+        {
+            return Regex.Replace(name, @"[^0-9 ]", "");
+        }
+
+
+        public static string RemoveWhiteSpace(string name)
+        {
+            return name.Replace(" ", "");
+        }
+
 
 
     }
