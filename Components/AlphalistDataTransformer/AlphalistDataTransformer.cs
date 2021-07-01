@@ -25,7 +25,7 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
                     MiddleName = NameCleaner.Apply(x.MiddleName),
                     LastName = NameCleaner.Apply(x.LastName),
                     TaxIdentificationNumber = x.TaxIdentificationNumber,
-                    TaxCode = NameCleaner.RemoveSpecialCharacters(x.TaxCode),
+                    TaxCode = TaxCodeCleaner.Apply(x.TaxCode),
                     TaxBase = x.TaxBase,
                     WithHoldingTax = x.WithHoldingTax,
                     TaxRate = x.TaxRate,
