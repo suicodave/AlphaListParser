@@ -3,5 +3,8 @@
     "companyTin": "",
     "companyBranch": "",
     "cutOffDate": "",
-    "scheduleCode": ""
+    "scheduleCode": "",
+    "dbPath": "",
+    "annualSchedule": "",
+    "annualFormType": ""
 }

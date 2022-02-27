@@ -6,14 +6,8 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
     {
         public string NormalizedTin { get; set; }
 
-        public string BaseTin { get; set; }
-
         public string UnsanitizedBranchId { get; set; }
 
-        public string BranchId { get; set; }
-
-
-        public int Sequence { get; set; }
 
     }
 }

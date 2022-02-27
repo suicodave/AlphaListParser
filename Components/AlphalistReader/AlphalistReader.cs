@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -11,7 +12,6 @@ namespace AlphaListParser.Components.AlphalistReader
     {
         public static IEnumerable<Model> Read(string filePath)
         {
-            IEnumerable<Model> records;
 
             var readerConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -19,13 +19,12 @@ namespace AlphaListParser.Components.AlphalistReader
                 MissingFieldFound = null
             };
 
-            using (var streamReader = new StreamReader(filePath))
-            using (var csv = new CsvReader(streamReader, readerConfig))
-            {
-                records = csv.GetRecords<Model>().ToList();
-            }
+            using var streamReader = new StreamReader(filePath);
 
-            return records;
+            using var csv = new CsvReader(streamReader, readerConfig);
+
+            return csv.GetRecords<Model>().ToList();
+
         }
     }
 }

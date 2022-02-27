@@ -20,18 +20,13 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
 
                 records.Add(new TransformedAlphalistModel
                 {
-                    CorporateName = NameCleaner.Apply(x.CorporateName),
-                    FirstName = NameCleaner.Apply(x.FirstName),
-                    MiddleName = NameCleaner.Apply(x.MiddleName),
-                    LastName = NameCleaner.Apply(x.LastName),
+
                     TaxIdentificationNumber = x.TaxIdentificationNumber,
                     TaxCode = TaxCodeCleaner.Apply(x.TaxCode),
                     TaxBase = x.TaxBase,
                     WithHoldingTax = x.WithHoldingTax,
                     TaxRate = x.TaxRate,
                     NormalizedTin = NormalizeTin.Apply(x.TaxIdentificationNumber),
-                    BaseTin = ExtractBaseTin.Apply(x.TaxIdentificationNumber),
-                    BranchId = ExtractTinBranchId.Apply(x.TaxIdentificationNumber),
                     UnsanitizedBranchId = ExtractUnsanitizedTinBranchId.Apply(x.TaxIdentificationNumber),
                     Sequence = i + 1
 
