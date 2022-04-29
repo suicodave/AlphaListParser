@@ -26,7 +26,7 @@ namespace AlphaListParser.Components.AlphalistReader
             }
         }
 
-        public string _MiddleName { get; set; }
+        private string _MiddleName { get; set; }
         public string MiddleName
         {
             get => _MiddleName; set

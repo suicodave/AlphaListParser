@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2defc7fe-d20f-4a2d-862c-26b65d8c1901": {
+      "ProjectGuid": "2defc7fe-d20f-4a2d-862c-26b65d8c1901",
+      "DisplayName": "AlphaListParser",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

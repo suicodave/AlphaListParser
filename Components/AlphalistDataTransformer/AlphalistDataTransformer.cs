@@ -20,7 +20,10 @@ namespace AlphaListParser.Components.AlphalistDataTransformer
 
                 records.Add(new TransformedAlphalistModel
                 {
-
+                    FirstName = x.FirstName,
+                    MiddleName = x.MiddleName,
+                    LastName = x.LastName,
+                    CorporateName = x.CorporateName,
                     TaxIdentificationNumber = x.TaxIdentificationNumber,
                     TaxCode = TaxCodeCleaner.Apply(x.TaxCode),
                     TaxBase = x.TaxBase,
